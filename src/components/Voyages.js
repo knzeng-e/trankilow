@@ -1,6 +1,7 @@
 import React from 'react';
 import Users from './Users';
 import Search from './search';
+import Travels from './Travels';
 import { connect } from 'react-redux';
 
 
@@ -12,7 +13,8 @@ const Voyages = (props) => {
         <div className="Voyages_list">
             <Search />
             <div className='container'>
-                <Users usersList={props.users}/>
+                {/* <Users usersList={props.users}/> */}
+                <Travels travelsList = {props.travels} usersList={props.users}/>
             </div>
               
         </div>
@@ -21,7 +23,8 @@ const Voyages = (props) => {
 
 const mapStateToProps = state => {
     return {
-        users: state.users
+        users: state.users,
+        travels: state.travels,
 
     }
 }

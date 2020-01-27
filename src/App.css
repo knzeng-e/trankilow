@@ -10,7 +10,6 @@
 }
 
 .Header {
-  background-color: rgb(4, 6, 41);
   grid-area: head;
   display: flex;
   flex-direction: row;
@@ -44,7 +43,6 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 246, 246, 0.849);
   padding-left: 1%;
   padding-right: 1%;
 }

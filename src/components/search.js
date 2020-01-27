@@ -72,7 +72,7 @@ class Search extends Component {
                                 <input type = "text" placeholder="Date" className="datepicker" onChange = {this.handleDate}/>
                             </div>
                             <div className="col s2">
-                                <button className="btn teal darken-4 calendar" type="submit">valider</button>
+                                <button className="btn teal darken-1 calendar" type="submit">valider</button>
                             </div>
                        </div> 
                 </form>

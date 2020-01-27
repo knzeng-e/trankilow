@@ -15,6 +15,7 @@ const showUsers = (props) => {
                                     <p>Prénom: {user.prenom}</p>
                                     <p>Adresse: {user.adresse}</p>
                                     <p>Tel: {user.tel}</p>
+                                    <p>Mail: {user.mail}</p>
                                 </div>
 
                             </div>

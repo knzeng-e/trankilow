@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <nav className = "navbar teal darken-4">
+        <nav className = "navbar teal darken-1">
             <div className="nav-wrapper">
                 <ul id="nav-mobile" className="left hide-on-med-and-down">
                     <li>
