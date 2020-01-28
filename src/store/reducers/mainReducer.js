@@ -52,7 +52,7 @@ const initialState = {
             capacity: 23
         },
         {
-            user_id: 2,
+            userId: 2,
             from: 'Libreville',
             to: 'Toulouse',
             date: '20/02/2020',

@@ -26,6 +26,9 @@
 }
 
 .Voyages_list {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
   background-color: rgb(255, 255, 255);
 }
 

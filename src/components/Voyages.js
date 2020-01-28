@@ -8,12 +8,11 @@ import { connect } from 'react-redux';
 
 const Voyages = (props) => {
 
-    console.log('Users ==> ', props.users)
+    console.log('Props ==> ', props)
     return (
-        <div className="Voyages_list">
+        <div>
             <Search />
-            <div className='container'>
-                {/* <Users usersList={props.users}/> */}
+            <div className='Voyage_list container'>
                 <Travels travelsList = {props.travels} usersList={props.users}/>
             </div>
               

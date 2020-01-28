@@ -3,14 +3,17 @@ import { NavLink } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <nav className = "navbar teal darken-1">
+        <nav className = "navbar teal darken-3">
             <div className="nav-wrapper">
                 <ul id="nav-mobile" className="left hide-on-med-and-down">
                     <li>
                             <NavLink className="" to="/"> Accueil</NavLink>
                     </li>
-                    <li><a href="badges.html">Components</a></li>
-                    <li><a href="collapsible.html">JavaScript</a></li>
+                </ul>
+                <ul>
+                    <li className="right">
+                        <NavLink className = "" to="/newUser">Créez votre compte</NavLink>
+                    </li>
                 </ul>
                 <form>
                     <div className="input-field right">
