@@ -1,6 +1,6 @@
 import React from 'react';
 import Users from './Users';
-import Search from './search';
+import Search from './Search';
 import Travels from './Travels';
 import { connect } from 'react-redux';
 
@@ -10,9 +10,9 @@ const Voyages = (props) => {
 
     console.log('Props ==> ', props)
     return (
-        <div>
+        <div className="container">
             <Search />
-            <div className='Voyage_list container'>
+            <div className='Voyage_list'>
                 <Travels travelsList = {props.travels} usersList={props.users}/>
             </div>
               

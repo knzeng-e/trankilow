@@ -49,14 +49,40 @@ const initialState = {
             from: 'Paris',
             to: 'Madrid',
             date: '20/02/2020',
-            capacity: 23
+            capacity: 23,
+            status: 'active',
         },
         {
             userId: 2,
             from: 'Libreville',
             to: 'Toulouse',
             date: '20/02/2020',
-            capacity: 21
+            capacity: 21,
+            status: 'active',
+        },
+        {
+            userId: 4,
+            from: 'Bordeaux',
+            to: 'Ouagadougou',
+            date: '09/07/2020',
+            capacity: 12,
+            status: 'active',
+        },
+        {
+            userId: 3,
+            from: 'Nantes',
+            to: 'Grenoble',
+            date: '10/05/2020',
+            capacity: 5,
+            status: 'active',
+        },
+        {
+            userId: 2,
+            from: 'Libreville',
+            to: 'Le Mans',
+            date: '29/01/2020',
+            capacity: 42,
+            status: 'active',
         },
     ] 
 }

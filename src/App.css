@@ -1,6 +1,6 @@
  .App {
   min-height: 100%;
-  height: 100%;;
+  height: 100%;
   /* display: grid;
   grid-template-columns:  15% auto auto;
   grid-template-rows:     12% auto 10%;
@@ -21,9 +21,6 @@
 .footer {
  /* background-color: rgba(32, 45, 66, 0.911);*/
 }
-.navbar {
-  background-color: rgba(32, 45, 66, 0.911);
-}
 
 .Voyages_list {
   display: flex;
@@ -37,17 +34,28 @@
   flex-flow: wrap;
 }
 
-.calendar{
-  margin-top: 21%;
-}
-
 .Search {
-  display: flexbox;
-  flex-direction: row;
+  display: flex;
+  flex-direction: row; 
   align-items: center;
   justify-content: center;
-  padding-left: 1%;
-  padding-right: 1%;
+}
+
+.calendar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+table.highlight>tbody>tr:hover {
+  /* background-color: rgba(194, 206, 23, 0.5);     */
+  /* background-color: #3a9c6396  ; */
+  color: #3f51b5;
+  font-weight: bold;
+  cursor: pointer;
+}
+table.highlight>tbody>tr {
+  color: rgb(19, 13, 13);                                     /* whatever color you want */
 }
 
 .SideMenu {
@@ -60,13 +68,4 @@
   width: 150px;
   padding-left: 13px;
   min-height: 100%;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

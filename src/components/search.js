@@ -59,23 +59,23 @@ class Search extends Component {
 
     render () {
         return (
-            <div className = "Search" style = {searchBarStyle}>
-                <form className="center" onSubmit = {this.handleSubmit}>
-                    <div className="row">
-                            <div className="col s3 m3 input-field">
-                                    <input placeholder="Ville de départ" type="text" onChange = {this.handleDeparture}/>
+            <div className = "Search container" style = {searchBarStyle}>
+                <form className="" onSubmit = {this.handleSubmit}>
+                        <div className=" row">
+                            <div className="col">
+                                <input placeholder="Ville de départ" type="text" onChange = {this.handleDeparture}/>
+                                <input placeholder = "Ville d'arrivée" type="text" onChange = {this.handleArrival}/>
+                                <div className="row calendar" id="calendar">
+                                    <div className = "col">
+                                        <input type = "text" placeholder="Date" className="datepicker" onChange = {this.handleDate}/>
+                                    </div>
+                                    <div className = "col  m12 s12 l12">
+                                        <button className="btn right indigo" type="submit">valider</button>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="col s3 m3 input-field">
-                                    <input placeholder = "Ville d'arrivée" type="text" onChange = {this.handleArrival}/>
-                            </div>
-                            <div className="col s3 m3 input-field" id="calendar">
-                                <input type = "text" placeholder="Date" className="datepicker" onChange = {this.handleDate}/>
-                            </div>
-                            <div className="col s2">
-                                <button className="btn teal darken-1 calendar" type="submit">valider</button>
-                            </div>
-                       </div> 
-                </form>
+                       </div>
+                    </form>
             </div>
         )
     }
