@@ -2,7 +2,7 @@ import React from 'react';
 
 const getTraveler = (travelerId, usersList) => {
     const currentUser = usersList.find(user => user.id === travelerId);
-    if (currentUser == undefined)
+    if (currentUser === undefined)
         return null;
     return currentUser
 }
@@ -11,7 +11,8 @@ const showtravels  = (props) => {
     return(
         <div className="travels row">
             <div className="divider"><p></p></div>
-            <div className="divider"></div>
+            <div className="divider">
+            </div>
             <div className="divider"></div>
             <div className="divider"></div>
             <table className="responsive-table highlight striped centered z-depth-3">

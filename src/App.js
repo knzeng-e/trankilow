@@ -1,15 +1,27 @@
 import './App.css';
+import M from 'materialize-css';
+import Home from './components/Home';
 import React, { Component } from 'react';
 import SignIn from './components/Signin';
 import SignUp from './components/Signup';
-import Home from './components/Home';
 import Footer from './components/Footer';
 import Voyages from './components/Voyages';
 import SideMenu from './components/SideMenu';
+import AddTravel from './components/AddTravel';
 import UserDetails from './components/UserDetails';
 import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 
  class App extends Component {
+
+  componentDidMount = () => {
+    const options = {
+      responsiveThreshold: 0,
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.parallax');
+      var instances = M.Parallax.init(elems, options);
+    });
+  }
    render(){
     return (
       <div className="App">
@@ -20,10 +32,7 @@ import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-do
                   <ul id="nav-mobile" className="left hide-on-med-and-down">
                   {/* <ul id="nav-mobile" className="left"> */}
                       <li>
-                              <NavLink className="" to="/"> Accueil</NavLink>
-                      </li>
-                      <li>
-                              <NavLink className="" to="/travels"> Derniers voyages</NavLink>
+                              <a className="" href="/"> Accueil</a>
                       </li>
                   </ul>
                   <ul className="hide-on-large-only">
@@ -39,7 +48,8 @@ import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-do
                           <NavLink className = "" to="/signin">Connexion</NavLink>
                       </li>
                       <li>
-                          <NavLink className = "" to="/trajet">Proposez un trajet</NavLink>
+                        <a href="/newTravel">Proposez un trajet</a>
+                          {/* <NavLink className = "" to="/newTravel">Proposez un trajet</NavLink> */}
                       </li>
                   </ul>
                   
@@ -53,17 +63,20 @@ import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-do
               </div>
           </nav>
         {/* <SideMenu /> */}
+        
+        
   
           <Switch>
               <Route exact path = '/' component = {Home}/>
               <Route exact path = '/signup' component = {SignUp}/>
               <Route exact path = '/signin' component = {SignIn}/>
               <Route path = '/travels' component = {Voyages}/>
+              <Route path = '/newTravel' component = {AddTravel}/>
               <Route path = '/menu' component = {SideMenu}/>
               <Route path = '/profile/:userId' component = {UserDetails}/>
             </Switch>
-            <Footer />
         </Router>
+        <Footer />
       </div>
     );
   }
