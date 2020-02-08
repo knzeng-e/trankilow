@@ -4,6 +4,7 @@ import Travels from "./Travels";
 import pre from "../images/pre.jpg";
 import { connect } from 'react-redux';
 import plane from "../images/plane.jpg";
+import airport from '../images/airport.jpg';
 import deep_blue from "../images/deep_blue.jpg";
 import sky from "../images/Sky_with_Sun_Background.jpg"
 import plane_take_off from "../images/plane_take_off.jpg";
@@ -31,7 +32,7 @@ const Home = (props) => {
                     <p className="white-text text-darken-3 lighten-3">Vos Kilos ont de la valeur.</p>
                     <p className="white-text right text-darken-3 lighten-3">Renforcez la communauté de voyageurs.</p>
 
-                    <div className="parallax"><img src={plane}/>
+                    <div className="parallax"><img src={airport}/>
                     </div>
             </div>
         </div>
