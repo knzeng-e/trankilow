@@ -11,6 +11,7 @@ import plane_take_off from "../images/plane_take_off.jpg";
 
 
 const Home = (props) => {
+    console.log("travles in store ==> ", props.travels)
     return (
             <div className="home">
                 <div className="section white center">

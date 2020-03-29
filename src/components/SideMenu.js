@@ -25,7 +25,7 @@ class sidePanel extends Component {
                         <NavLink className="" to="/travels"> Derniers voyages</NavLink>
                     </li>
                       <li>
-                          <NavLink className = "" to="/trajet">Proposez un trajet</NavLink>
+                          <NavLink className = "" to="/newTravel">Proposez un trajet</NavLink>
                       </li>
                     <li>
                           <NavLink className = "" to="/signup">Créez votre compte</NavLink>

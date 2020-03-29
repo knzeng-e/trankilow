@@ -46,40 +46,40 @@ const initialState = {
     travels: [
         {
             userId: 1,
-            from: 'Paris',
-            to: 'Madrid',
+            from: 'paris',
+            to: 'madrid',
             date: '20/02/2020',
             capacity: 23,
             status: 'active',
         },
         {
             userId: 2,
-            from: 'Libreville',
-            to: 'Toulouse',
+            from: 'libreville',
+            to: 'toulouse',
             date: '20/02/2020',
             capacity: 21,
             status: 'active',
         },
         {
             userId: 4,
-            from: 'Bordeaux',
-            to: 'Ouagadougou',
+            from: 'bordeaux',
+            to: 'ouagadougou',
             date: '09/07/2020',
             capacity: 12,
             status: 'active',
         },
         {
             userId: 3,
-            from: 'Nantes',
-            to: 'Grenoble',
+            from: 'nantes',
+            to: 'grenoble',
             date: '10/05/2020',
             capacity: 5,
             status: 'active',
         },
         {
             userId: 2,
-            from: 'Libreville',
-            to: 'Le Mans',
+            from: 'libreville',
+            to: 'le mans',
             date: '29/01/2020',
             capacity: 42,
             status: 'active',
@@ -91,10 +91,12 @@ const mainReducer = (state = initialState, action) => {
 
     switch(action.type){
         case 'ADD_TRAVEL':
-            return {
+            const newTravel = {
                 ...state,
-                travels: [...state.voyages, action.payload]
+                travels: [...state.travels, action.payload]
             }
+            console.log("ADD_TRAVEL to STore ==> ", newTravel)
+            return newTravel
         
         case 'ADD_USER':
             return {

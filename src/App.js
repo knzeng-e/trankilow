@@ -77,9 +77,9 @@ import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-do
               <div className="nav-wrapper">
                   <ul id="nav-mobile" className="left hide-on-med-and-down">
                   {/* <ul id="nav-mobile" className="left"> */}
-                      <li>
-                              <a className="" href="/"> Accueil</a>
-                      </li>
+                    <li>
+                      <a className="" href="/"> Accueil</a>
+                    </li>
                   </ul>
                   <ul className="hide-on-large-only">
                     <li>

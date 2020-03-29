@@ -28,9 +28,10 @@ const showtravels  = (props) => {
                 <tbody>
                 {props.travelsList.map(travel => {
                     const userInfos = getTraveler(travel.userId, props.usersList);
+                    const keyString = `${travel.userId}${travel.from}${travel.to}`
                     if (userInfos)
                         return ( 
-                            <tr key = {travel.userId}>
+                            <tr key = {keyString}>
                                 <td>
                                     {userInfos.prenom}
                                 </td>
