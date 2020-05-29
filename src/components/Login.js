@@ -2,9 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const SignedInLinks = account =>  {
-    console.log("DHEGJHEB ==> ", account)
     const etherscanSearch = "https://etherscan.io/address/" + account
-    console.log("EteherScan ==> ", etherscanSearch)
     const userInfos = <i className="material-icons">account_circle</i>
         return (
             <div>
@@ -12,7 +10,7 @@ const SignedInLinks = account =>  {
                     <li>{userInfos}</li>
                     <li>
                         <div>
-                            <a href={etherscanSearch}>{account}</a>
+                            <a href={etherscanSearch} target="blank">{account}</a>
                         </div>
                     </li>
                     <li>
@@ -41,7 +39,7 @@ const SignedOutLinks = account => {
 const Login = ({accounts}) => {
     //let accounts = props.accounts;
 
-    console.log("NEXT ACCOUNT STATE ==> ", accounts)
+    console.log("ACCOUNTS ==> ", accounts)
 
     return ( accounts !== null ? 
         (SignedInLinks(accounts)): 

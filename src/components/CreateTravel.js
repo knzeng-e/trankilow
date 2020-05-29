@@ -41,7 +41,8 @@ class AddTravel extends Component {
         e.preventDefault();
         console.log("NOUVEAU VOYAGE ==> ", this.state)
         this.props.addTravel(this.state);
-        this.props.history.push('/')
+        //this.props.history.push('/')
+        window.location = '/';
     }
 
     handleDate = (selectedDate) => {
@@ -49,10 +50,11 @@ class AddTravel extends Component {
             date: moment(selectedDate).format('L')
         })
     }
+
     render(){
         
         return (
-            <div className="newTravel Search">
+            <div className="newTravel Form">
                 <form className="" onSubmit = {this.handleAddTravel}>
                     <div className="row">
                         <div className="col input-field">
@@ -71,7 +73,7 @@ class AddTravel extends Component {
                         </div>
                         <div className="col input-field">
                             <i className="material-icons prefix">fitness_center</i>
-                            <input type="text" id='capacity' required={true} placeholder="Capacité disponible (kg)" required={true} onChange={this.handleChange}/>
+                            <input type="text" id='capacity'  pattern="[0-9]*" required={true} placeholder="Capacité disponible (kg)" required={true} onChange={this.handleChange}/>
                         </div>
                     </div>
                     <div className="center row">

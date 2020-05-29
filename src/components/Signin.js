@@ -2,7 +2,7 @@ import React from 'react';
 
 const Signin = () => {
     return (
-        <div className=" Search signin">
+        <div className="Form signin">
             <form>
                 <div className="row">
                     <div className="col input-field">

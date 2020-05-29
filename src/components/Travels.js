@@ -1,6 +1,8 @@
 import React from 'react';
 
 const getTraveler = (travelerId, usersList) => {
+    if (usersList === undefined)
+        return null
     const currentUser = usersList.find(user => user.id === travelerId);
     if (currentUser === undefined)
         return null;

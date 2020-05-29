@@ -1,5 +1,10 @@
- .App {
+ body {
+  height: 100vh;
   min-height: 100%;
+  /* background-color: rgb(199, 213, 241); */
+ }
+ 
+ .App {
   height: 100%;
   /* display: grid;
   grid-template-columns:  15% auto auto;
@@ -43,7 +48,7 @@
   flex-flow: wrap;
 }
 
-.Search {
+.Form {
   display: flex;
   flex-direction: row; 
   align-items: center;
