@@ -6,6 +6,18 @@ Plateforme décentralisée d'envoi de colis etre particuliers.
 - MongoDB
 - Blockchain Ethereum
 
+## Aperçu
+
+![](https://github.com/knzeng-e/trankilow/blob/master/trankilow_travels.png)
+
+## Fonctionne sous Ethereum
+- identification/authentification utilisateurs
+- paiements frais de transport [To DO]
+
+![](https://github.com/knzeng-e/trankilow/blob/master/trankilow_blockchain_alert.png)
+![](https://github.com/knzeng-e/trankilow/blob/master/trankilow_blockchain_connexion.png)
+![](https://github.com/knzeng-e/trankilow/blob/master/trankilow_blockchain.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
