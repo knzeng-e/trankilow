@@ -1,4 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Trankilow
+
+Plateforme décentralisée d'envoi de colis etre particuliers.
+- React.js
+- Node.js
+- MongoDB
+- Blockchain Ethereum
 
 ## Available Scripts
 
