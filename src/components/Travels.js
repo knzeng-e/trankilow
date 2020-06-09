@@ -1,9 +1,11 @@
 import React from 'react';
 
 const getTraveler = (travelerId, usersList) => {
+    console.log("In getTraveler: usersList ==> ", usersList)
+    console.log("In getTraveler: travelerId ==> ", travelerId)
     if (usersList === undefined)
         return null
-    const currentUser = usersList.find(user => user.id === travelerId);
+    const currentUser = usersList.find(user => user._id === travelerId);
     if (currentUser === undefined)
         return null;
     return currentUser
@@ -29,13 +31,14 @@ const showtravels  = (props) => {
                 </thead>
                 <tbody>
                 {props.travelsList.map(travel => {
+                    console.log("Travel ==> ", travel)
                     const userInfos = getTraveler(travel.userId, props.usersList);
                     const keyString = `${travel.userId}${travel.from}${travel.to}`
                     if (userInfos)
                         return ( 
-                            <tr key = {keyString}>
+                            <tr key = {travel._id}>
                                 <td>
-                                    {userInfos.prenom}
+                                    {userInfos.firstName}
                                 </td>
                                 <td>
                                     {travel.from}

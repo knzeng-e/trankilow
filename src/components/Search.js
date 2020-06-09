@@ -10,7 +10,7 @@ class Search extends Component {
             arrivee: '',
             travelDate: '',
             heure: '',
-            foundTravels: []
+            foundTravels: ['tut']
         }
     }
 
@@ -32,9 +32,10 @@ class Search extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
+        console.log("[Search] TravelsToFind ==> ", this.props.travelsList)
         const {depart, arrivee, travelDate} = this.state;
-        const foundTravels = this.props.travels.find(travel => {
-            return travel.from === depart && travel.to === arrivee})
+        const foundTravels = this.props.travelsList.travels.find(travel => {
+            return travel.from.toLowerCase() === depart && travel.to.toLowerCase() === arrivee})
             console.log('result ==>', foundTravels)
 
         console.log("Recherche: ", depart, " - ", arrivee, " - ", travelDate);
@@ -42,7 +43,7 @@ class Search extends Component {
             this.setState({
                 foundTravels: foundTravels
             })
-            console.log(':-) Corresponding travels => ', this.state.foundTravels);
+            console.log(':-) Corresponding travels => ', foundTravels);
         }
         else {
             console.log(`:-( No travels found from ${depart} to ${arrivee}`)
@@ -98,7 +99,7 @@ const searchBarStyle = {
 
 const mapStateToProps = (state) => {
     return {
-        travels: state.travels
+        travelsList: state.travels.travelsList
     }
 }
 

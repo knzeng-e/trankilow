@@ -9,36 +9,37 @@ import airport from '../images/airport.jpg';
 import deep_blue from "../images/deep_blue.jpg";
 import sky from "../images/Sky_with_Sun_Background.jpg"
 import plane_take_off from "../images/plane_take_off.jpg";
+import { fetchUsers } from '../store/actions/users_action';
+import { fetchTravels } from '../store/actions/travels_action';
 
 
 class Home extends Component {
     constructor(props){
         super(props);
         this.state = {
-            travels: props.travels,
+            travels: props.travelsList,
             users: ''
         }
     }
 
     componentDidMount() {
-        axios.get("http://localhost:5000/users")
-        .then(users => {
-            console.log("initial users ==> ", users.data)
-            if (users.data.length)
-            {
-                console.log('OK!!!')
-                this.setState({
-                    users: users.data
-                })
-            }
-            console.log('NOT OK ')
-        })
-        .catch(error => console.log('getUsers Error : ', error));
+        this.props.getTravels();
+        this.props.getUsers();
     }
 
     render(){
-        console.log("travels in store ==> ", this.state.travels)
-        console.log("current users in store ==> ", this.state.users)
+        const {travelsError, travelsLoading, travelsList} = this.props;
+        const {usersError, usersLoading, usersList} = this.props;
+
+        if (travelsError) {
+            return <div>Error ! {travelsError.message}</div>
+        }
+        if (usersError){
+            return <div>Error ! {usersError.message}</div>
+        }
+        if (travelsLoading || usersLoading || travelsList.length === 0 || usersList.length === 0){
+            return <div>Loading...</div>
+        }
         return (    
                 <div className="home">
                     <div className="section white center">
@@ -50,7 +51,7 @@ class Home extends Component {
                     <div className="section white center">
                         <div className="row container">
                             <h5 className="center">Derniers voyages</h5>
-                        <Travels travelsList = {this.props.travels} usersList={this.props.users}/>
+                        <Travels travelsList = {travelsList.travels} usersList={usersList.users}/>
                         </div>
                     </div>
                     <div className="parallax-container parallax-text">
@@ -71,14 +72,20 @@ class Home extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        users: state.users,
-        travels: state.travels
+        travelsError: state.travels.error,
+        travelsLoading: state.travels.loading,
+        travelsList: state.travels.travelsList,
+        
+        usersError: state.users.error,
+        usersLoading: state.users.loading,
+        usersList: state.users.usersList
     }
 }
 
-const mapDispatchToProps = () => {
+const mapDispatchToProps = (dispatch) => {
     return {
-
+        getTravels: () => dispatch(fetchTravels()),
+        getUsers: () => dispatch(fetchUsers())
     }
 }
 
