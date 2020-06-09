@@ -1,7 +1,12 @@
 # Trankilow
 
 Plateforme décentralisée d'envoi de colis etre particuliers.
+
+## Front-end:
 - React.js
+- MaterializeCss
+
+## Back-end
 - Node.js
 - MongoDB
 - Blockchain Ethereum
