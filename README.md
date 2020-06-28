@@ -1,10 +1,11 @@
 # Trankilow
 
-Plateforme décentralisée d'envoi de colis etre particuliers.
+Plateforme décentralisée d'envoi de colis entre particuliers.
 
 ## Front-end:
 - React.js
 - MaterializeCss
+- Metamask
 
 ## Back-end
 - Node.js
