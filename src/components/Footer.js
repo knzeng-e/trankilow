@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <footer className = "page-footer indigo footer center">
+        // <footer className = "page-footer indigo footer center">
+        <footer className = "page-footer footer">
             <p style={styles.copyright}>
                 Copyright {'\u00A9'} 2020 {'\u2625'}
             </p>

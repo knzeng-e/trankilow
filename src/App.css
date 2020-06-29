@@ -1,17 +1,52 @@
  body {
-  height: 100vh;
-  min-height: 100%;
-  /* background-color: rgb(199, 213, 241); */
+  /* min-height: 100%; */
+  /* background-color: #034920; */
+  /* background-color: rgba(214, 220, 226, 0.993); */
+  /* background-color: rgba(255, 255, 255, 0.466); */
+  /* background-color: rgba(0, 0, 0, 0.863); */
+  background-color: rgb(255, 255, 255);
+  /* opacity: 0.9; */
+
+  display: flexbox;
+  flex-direction: row;
+  justify-content: space-between;
  }
  
  .App {
-  height: 100%;
+  /* min-height: 100%; */
   /* display: grid;
   grid-template-columns:  15% auto auto;
   grid-template-rows:     12% auto 10%;
   grid-template-areas:    "head head head" 
                           "side main main"
                           "footer footer footer"; */
+}
+
+.appName {
+  color: rgb(211, 179, 97);
+  position: absolute;
+  left: 50%;
+  /* text-align: center; */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5em;
+  /* height: 2.4em; */
+  /* border: 1px solid; */
+  border-radius: 4.2px;
+  /* background-color: floralwhite; */
+  padding-bottom: 0;
+}
+
+.appName:hover{
+  cursor: pointer;
+  /* background-color: rgb(233, 227, 215); */
+}
+
+.navBar {
+  /* background-color: rgba(6, 64, 122, 0.767); */
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  background-color: rgb(29, 37, 18);
 }
 
 .Header {
@@ -21,9 +56,17 @@
   justify-content: center;
   border-radius: 1%;
   height: 20px;
+  /* background-color: tomato; */
+}
+
+.home {
+  /* min-height: 100%; */
+  /* background-color: yellow; */
 }
 
 .parallax-container {
+  font-family:'Arial Narrow Bold';
+  /* font-style: italic; */
   height: 200px;
 }
 
@@ -32,8 +75,21 @@
   padding-right: 42px;
 }
 
+.description:hover {
+  color: darkgoldenrod;
+}
+
 .footer {
- /* background-color: rgba(32, 45, 66, 0.911);*/
+  color: darkgoldenrod;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+  font-size: 4.2%;
+  background-color: rgb(29, 37, 18);
+  /* background-color: rgba(32, 45, 66, 0.911);*/
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-top: 2em;
 }
 
 .Voyages_list {
@@ -87,4 +143,19 @@ table.highlight>tbody>tr {
   width: 150px;
   padding-left: 13px;
   min-height: 100%;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* top: 50%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  min-height: 100%;
+  color: white;
+  /* text-align: center; */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 21px;
+  font-weight: bold;
 }

@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import Login from './components/Login';
 import React, { Component } from 'react';
 import SignIn from './components/Signin';
+import Navbar from './components/Navbar';
 import SignUp from './components/Signup';
 import Footer from './components/Footer';
 import Voyages from './components/Voyages';
@@ -77,27 +78,7 @@ import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-do
         <div>
 
           <Router>
-            <nav className = "indigo">
-              <div className="brand-logo center">Trankilow</div>
-                <div className="nav-wrapper">
-                    <ul id="nav-mobile" className="left hide-on-med-and-down">
-                    {/* <ul id="nav-mobile" className="left"> */}
-                      <li>
-                        <a className="" href="/"> Accueil</a>
-                      </li>
-                    </ul>
-                    <ul className="hide-on-large-only">
-                      <li>
-                          <SideMenu/>
-                      </li>
-                    </ul>
-                    <Login accounts = {this.state.accounts} />
-                </div>
-            </nav>
-          {/* <SideMenu /> */}
-          
-          
-    
+            <Navbar accounts = {this.state.accounts}/>
             <Switch>
                 <Route exact path = '/' component = {Home}/>
                 <Route exact path = '/signup' component = {SignUp}/>

@@ -38,23 +38,24 @@ class Home extends Component {
             return <div>Error ! {usersError.message}</div>
         }
         if (travelsLoading || usersLoading || travelsList.length === 0 || usersList.length === 0){
-            return <div>Loading...</div>
+            return <div className = "home loading">Chargement des données ...</div>
         }
         return (    
                 <div className="home">
-                    <div className="section white center">
+                    <section>
                         <Search />
-                    </div>
-                    <div className="parallax-container">
+                    </section>
+                    
+                    {/* <div className="parallax-container">
                         <div className="parallax"><img src={sky}/></div>
-                    </div>
+                    </div> */}
                     <div className="section white center">
                         <div className="row container">
                             <h5 className="center">Derniers voyages</h5>
                         <Travels travelsList = {travelsList.travels} usersList={usersList.users}/>
                         </div>
                     </div>
-                    <div className="parallax-container parallax-text">
+                    <div className="description parallax-container parallax-text">
                             <p className="white-text text-darken-3 lighten-3">Envoyez rapidement et simplement votre colis.</p>
                             <p className="white-text right text-darken-3 lighten-3">Trouvez votre transporteur.</p>
                         <h4 className="white-text center">Trankilow</h4>

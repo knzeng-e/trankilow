@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const SignedInLinks = account =>  {
     const etherscanSearch = "https://etherscan.io/address/" + account
+    const accountAddress = account.toString()
     const userInfos = <i className="material-icons">account_circle</i>
         return (
             <div>
@@ -10,7 +11,7 @@ const SignedInLinks = account =>  {
                     <li>{userInfos}</li>
                     <li>
                         <div>
-                            <a href={etherscanSearch} target="blank">{account}</a>
+                            <a href={etherscanSearch} target="blank">{accountAddress.substring(0, 21) + '...'}</a>
                         </div>
                     </li>
                     <li>
