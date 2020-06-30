@@ -54,29 +54,42 @@ class AddTravel extends Component {
     render(){
         
         return (
-            <div className="newTravel Form">
+            <div className="container searchForm">
                 <form className="" onSubmit = {this.handleAddTravel}>
-                    <div className="row">
-                        <div className="col input-field">
-                            <i className="material-icons prefix">flight_takeoff</i>
-                            <input type="text" id='from' placeholder="Départ" required={true} onChange={this.handleChange}/>
+                        <div className="row">
+                            <div className="col iconField">
+                                <i className="material-icons prefix">flight_takeoff</i>
+                            </div>
+                            <div className="col input-field">
+                                <input type="text" id='from' placeholder="Départ" required={true} onChange={this.handleChange}/>
+                            </div>
                         </div>
-                        <div className="col input-field">
-                            <i className="material-icons prefix">flight_land</i>
-                            <input type="text" id='to' placeholder="Arrivée" required={true} onChange={this.handleChange}/>
+                        <div className="row">
+                            <div className="col iconField">
+                                <i className="material-icons prefix">flight_land</i>
+                            </div>
+                            <div className="col input-field">
+                                <input type="text" id='to' placeholder="Arrivée" required={true} onChange={this.handleChange}/>
+                            </div>
                         </div>
-                    </div>
+                    
                     <div className="row">
-                        <div className="col input-field">
+                        <div className="col iconField">
                             <i className="material-icons prefix">date_range</i>
+                        </div>
+                        <div className = "col input-field">
                             <input type="text" className="datepicker" required={true} placeholder="Date"/>
                         </div>
-                        <div className="col input-field">
+                    </div>
+                    <div className = "row">
+                        <div className="col iconField">
                             <i className="material-icons prefix">fitness_center</i>
+                        </div>
+                        <div className = "col inputField">
                             <input type="text" id='capacity'  pattern="[0-9]*" required={true} placeholder="Capacité disponible (kg)" required={true} onChange={this.handleChange}/>
                         </div>
                     </div>
-                    <div className="center row">
+                    <div className="row center">
                         <button className="btn center indigo" type="submit">Enregistrer</button>
                     </div>
                 </form>

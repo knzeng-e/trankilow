@@ -55,16 +55,15 @@ class Home extends Component {
                         <Travels travelsList = {travelsList.travels} usersList={usersList.users}/>
                         </div>
                     </div>
-                    <div className="description parallax-container parallax-text">
-                            <p className="white-text text-darken-3 lighten-3">Envoyez rapidement et simplement votre colis.</p>
-                            <p className="white-text right text-darken-3 lighten-3">Trouvez votre transporteur.</p>
-                        <h4 className="white-text center">Trankilow</h4>
-                        <p className="white-text text-darken-3 lighten-3">Vos Kilos ont de la valeur.</p>
-                        <p className="white-text right text-darken-3 lighten-3">Renforcez la communauté de voyageurs.</p>
+                    {/* <div className="description">
+                            <p className="">Envoyez rapidement et simplement votre colis.</p>
+                            <p className="right">Trouvez votre transporteur.</p>
+                        <h4 className="center">Trankilow</h4>
+                        <p className="">Vos Kilos ont de la valeur.</p>
+                        <p className="right">Renforcez la communauté de voyageurs.</p>
 
-                        <div className="parallax"><img src={airport}/>
-                        </div>
-                </div>
+                        <div className="parallax"><img src={airport}/></div>
+                    </div> */}
             </div>
         )
     }

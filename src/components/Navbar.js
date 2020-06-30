@@ -18,7 +18,7 @@ const Navbar = (props) => {
                       </li>
                     </ul>
                 </div>
-                <div className="appName">Trankilow</div>
+                <div className="appName"><a href="/">Trankilow</a></div>
                 <div>
                     <Login accounts = {props.accounts} />
                 </div>
