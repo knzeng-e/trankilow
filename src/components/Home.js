@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Search from './Search';
+import M from 'materialize-css';
 import Travels from "./Travels";
 import pre from "../images/pre.jpg";
 import { connect } from 'react-redux';
@@ -23,6 +24,17 @@ class Home extends Component {
     }
 
     componentDidMount() {
+        let context  = this;
+        document.addEventListener('DOMContentLoaded', function() {
+            M.Datepicker.init(
+                document.querySelectorAll('.datepicker'), 
+                {
+                    format: "dd/mm/yyyy",
+                    autoClose: true,
+                    container: document.getElementById('calendar'),
+                    onSelect: (selectedDate) => context.handleDate(selectedDate)
+                });
+            }); 
         this.props.getTravels();
         this.props.getUsers();
     }
@@ -35,7 +47,7 @@ class Home extends Component {
             return <div>Error ! {travelsError.message}</div>
         }
         if (usersError){
-            return <div>Error ! {usersError.message}</div>
+            return <div>Impossible de récupérer l'utilisateur ! {usersError.message}</div>
         }
         if (travelsLoading || usersLoading || travelsList.length === 0 || usersList.length === 0){
             return <div className = "home loading">Chargement des données ...</div>
@@ -45,25 +57,13 @@ class Home extends Component {
                     <section>
                         <Search />
                     </section>
-                    
-                    {/* <div className="parallax-container">
-                        <div className="parallax"><img src={sky}/></div>
-                    </div> */}
+
                     <div className="section white center">
                         <div className="row container">
                             <h5 className="center">Derniers voyages</h5>
                         <Travels travelsList = {travelsList.travels} usersList={usersList.users}/>
                         </div>
                     </div>
-                    {/* <div className="description">
-                            <p className="">Envoyez rapidement et simplement votre colis.</p>
-                            <p className="right">Trouvez votre transporteur.</p>
-                        <h4 className="center">Trankilow</h4>
-                        <p className="">Vos Kilos ont de la valeur.</p>
-                        <p className="right">Renforcez la communauté de voyageurs.</p>
-
-                        <div className="parallax"><img src={airport}/></div>
-                    </div> */}
             </div>
         )
     }

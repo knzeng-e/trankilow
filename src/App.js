@@ -11,7 +11,7 @@ import SignUp from './components/Signup';
 import Footer from './components/Footer';
 import Voyages from './components/Voyages';
 import SideMenu from './components/SideMenu';
-import AddTravel from './components/CreateTravel';
+import CreateTravel from './components/CreateTravel';
 import CreateUser from './components/CreateUser';
 import UserDetails from './components/UserDetails';
 import SimpleStorageContract from "./contracts/SimpleStorage.json"
@@ -84,7 +84,7 @@ import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-do
                 <Route exact path = '/signup' component = {SignUp}/>
                 <Route exact path = '/signin' component = {SignIn}/>
                 <Route path = '/travels' component = {Voyages}/>
-                <Route path = '/newTravel' component = {AddTravel}/>
+                <Route path = '/newTravel' component = {CreateTravel}/>
                 <Route path = '/newUser' component = {CreateUser}/>
                 <Route path = '/menu' component = {SideMenu}/>
                 <Route path = '/profile/:userId' component = {UserDetails}/>

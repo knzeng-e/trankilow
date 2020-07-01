@@ -1,20 +1,23 @@
-html, bosy {
-  height: 100vh;
-  margin: 0;
+html {
+  /* height: 100vh; */
+  min-height: 100%;
+
+  /* margin: 0; */
 } 
  
  body {
-  min-height: 100%;
-  height: 100vh;
+  /* height: 100vh; */
+  margin: 0;
+  padding: 0;
   background-color: rgb(255, 255, 255);
   background-image: url('./images/airport.jpg');
-  /* background-image: url('./images/Sky_with_Sun_Background.jpg'); */
-  /* background-image: url('./images/pre.jpg'); */
-  /* background-repeat: repeat; */
-  /* background-size: 1.2px; */
-  /* background-blend-mode: hard-light; */
-  display: flex;
-  flex-direction: column;
+  /* background-repeat: no-repeat; */
+  background-size: 100%;
+  background-position: top;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: space-evenly; */
+  min-height: 100vh;
   /* justify-content: space-between; */
  }
 

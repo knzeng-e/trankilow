@@ -3,13 +3,14 @@ import M from 'materialize-css';
 import { connect } from 'react-redux';
 import moment, { locale } from 'moment';
 import React, { Component } from 'react';
+import { fetchUsers } from '../store/actions/users_action';
 import addTravelAction from '../store/actions/addTravel_action'; 
 
 class AddTravel extends Component {
     constructor(props){
         super(props);
         this.state = {
-            userId: 1,
+            userId: props.userId,
             from: '',
             to: '',
             date: '',
@@ -17,7 +18,9 @@ class AddTravel extends Component {
         }
     }
     componentDidMount() {
-        var context = this
+        let context = this;
+        this.props.getUsers();
+
      document.addEventListener('DOMContentLoaded', function() {
         M.Datepicker.init(
             document.querySelectorAll('.datepicker'), 
@@ -27,7 +30,7 @@ class AddTravel extends Component {
                 container: document.getElementById('calendar'),
                 onSelect: (selectedDate) => context.handleDate(selectedDate)
             });
-        }); 
+        });
     }
 
     handleChange = (e) => {
@@ -38,11 +41,20 @@ class AddTravel extends Component {
     }
 
     handleAddTravel = (e) => {
+        const {usersError, usersLoading, usersList} = this.props;
+        const newTravel = this.state;
         e.preventDefault();
-        console.log("NOUVEAU VOYAGE ==> ", this.state)
-        this.props.addTravel(this.state);
-        //this.props.history.push('/')
-        window.location = '/';
+        console.log("NOUVEAU VOYAGE ==> ", this.state);
+        if (!usersLoading && !usersError){
+            console.log("first user Id => ", usersList.users[3]._id)
+            newTravel.userId = usersList.users[3]._id;
+            newTravel.date = new Date();
+            // const userId = getUserId(usersList, )
+            console.log('[in handleTravel]: Travel to add ==> ', newTravel);
+            this.props.addTravel(newTravel)
+                // window.location = '/';
+        }
+        this.props.history.push('/')
     }
 
     handleDate = (selectedDate) => {
@@ -52,9 +64,16 @@ class AddTravel extends Component {
     }
 
     render(){
-        
+        const {usersError, usersLoading, usersList} = this.props;
+
+        if (usersError){
+            return <div>Impossible de récupérer l'utilisateur ! {usersError.message}</div>
+        }
+        if (usersLoading){
+            return <div className = "loading">Chargement des données ...</div>
+        }
         return (
-            <div className="container searchForm">
+            <div className="container searchForm z-depth-5">
                 <form className="" onSubmit = {this.handleAddTravel}>
                         <div className="row">
                             <div className="col iconField">
@@ -99,13 +118,18 @@ class AddTravel extends Component {
 }
 
 const mapStateToProps = state => {
+    console.log("[in add_travel] : state = ", state);
     return {
+        usersError: state.users.error,
+        usersLoading: state.users.loading,
+        usersList: state.users.usersList,
         travels: state.travels
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
+        getUsers: () => dispatch(fetchUsers()),
         addTravel: (newTravel) => dispatch(addTravelAction(newTravel))
     }
 }
