@@ -46,6 +46,8 @@ import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-do
       // Use web3 to get the user's accounts.
       const accounts = await web3.eth.getAccounts();
 
+      console.log("Ethereum Account => ", accounts)
+
       // Get the contract instance.
       const networkId = await web3.eth.net.getId();
       const deployedNetwork = SimpleStorageContract.networks[networkId];

@@ -69,7 +69,7 @@ class Search extends Component {
 
     render () {
         return (
-            <div className = "container searchForm" >
+            <div className = "container Form" >
                 <form className = "" onSubmit = {this.handleSubmit}>
                         <div className = "row">
                             <div className = "col iconField">

@@ -1,13 +1,14 @@
 const router = require('express').Router();
+const bcrypt = require('bcrypt');
 let User = require('../models/user.model');
 
-router.route('/').get((req, res) => {
+router.get('/', (req, res, next) => {
     User.find()
         .then(users => res.json(users))
         .catch(error => res.status(400).json('Error: ' + error));
 });
 
-router.route('/:id').get((req, res) => {
+router.get('/:id', (req, res, next) => {
     User.findById(req.params.id)
         .then((user) => {
             res.json(user);
@@ -16,7 +17,7 @@ router.route('/:id').get((req, res) => {
     console.log(req.body.id);
 });
 
-router.route('/:id').delete((req, res) => {
+router.delete('/:id', (req, res, next) => {
     User.findByIdAndDelete(req.params.id)
         .then(() => {
             res.json('User deleted');
@@ -25,7 +26,7 @@ router.route('/:id').delete((req, res) => {
     console.log(req.body.id);
 });
 
-router.route('/update/:id').post((req, res) => {
+router.post('/update/:id', (req, res, next) => {
     User.findById(req.params.id)
         .then((user) => {
             user.firstName = req.body.firstName;
@@ -44,10 +45,11 @@ router.route('/update/:id').post((req, res) => {
         .catch(error => res.status(400).json('Error: ' + error));
 })
 
-router.route('/add').post((req, res) => {
+router.post('/add', (req, res, next) => {
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
     const email = req.body.email;
+    const password = bcrypt(req.body.password, 12); //Maybe we would prefer crypt the password on the client side
     const birthDate = req.body.birthDate;
     const address = req.body.address;
     const phoneNumber = req.body.phoneNumber;
@@ -58,6 +60,7 @@ router.route('/add').post((req, res) => {
         firstName,
         lastName,
         email,
+        password,
         address,
         birthDate,
         phoneNumber,
