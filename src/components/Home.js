@@ -19,7 +19,8 @@ class Home extends Component {
         super(props);
         this.state = {
             travels: props.travelsList,
-            users: ''
+            users: '',
+            dataFormat: 'table'
         }
     }
 
@@ -61,7 +62,7 @@ class Home extends Component {
                     <div className="section white center">
                         <div className="row container">
                             <h5 className="center">Derniers voyages</h5>
-                        <Travels travelsList = {travelsList.travels} usersList={usersList.users}/>
+                        <Travels travelsList = {travelsList.travels} usersList={usersList.users} format={this.state.dataFormat}/>
                         </div>
                     </div>
             </div>

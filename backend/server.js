@@ -1,6 +1,7 @@
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
+const authRoutes = require('./routes/authRoutes');
 const usersRoutes = require('./routes/users-routes');
 const travelsRoutes = require('./routes/travels-routes');
 
@@ -20,6 +21,7 @@ connection.once('open', () => {
 	console.log('MongoDb connection established successfully !');
 })
 
+app.use('/auth', authRoutes);
 app.use('/users', usersRoutes);
 app.use('/travels', travelsRoutes);
 app.listen(portNumber, () => {
