@@ -1,12 +1,69 @@
- .App {
+html {
+  /* height: 100vh; */
   min-height: 100%;
-  height: 100%;
+
+  /* margin: 0; */
+} 
+ 
+ body {
+  /* height: 100vh; */
+  margin: 0;
+  padding: 0;
+  background-color: rgb(255, 255, 255);
+  background-image: url('./images/airport.jpg');
+  /* background-repeat: no-repeat; */
+  background-size: 100%;
+  background-position: top;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: space-evenly; */
+  min-height: 100vh;
+  /* justify-content: space-between; */
+ }
+
+ footer {
+
+ }
+ 
+ .App {
+   /* display: flex;
+   flex-direction: column;
+   align-items: stretch; */
+  /* min-height: 100%; */
   /* display: grid;
   grid-template-columns:  15% auto auto;
   grid-template-rows:     12% auto 10%;
   grid-template-areas:    "head head head" 
                           "side main main"
                           "footer footer footer"; */
+}
+
+.appName {
+  color: rgb(211, 179, 97);
+  position: absolute;
+  left: 50%;
+  /* text-align: center; */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5em;
+  /* height: 2.4em; */
+  /* border: 1px solid; */
+  border-radius: 4.2px;
+  /* background-color: floralwhite; */
+  padding-bottom: 0;
+}
+
+.appName a:hover{
+  cursor: pointer;
+  color: darkgoldenrod;
+  /* background-color: rgb(233, 227, 215); */
+}
+
+.navBar {
+  /* background-color: rgba(6, 64, 122, 0.767); */
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  background-color: rgb(29, 37, 18);
 }
 
 .Header {
@@ -16,9 +73,17 @@
   justify-content: center;
   border-radius: 1%;
   height: 20px;
+  /* background-color: tomato; */
+}
+
+.home {
+  /* min-height: 100%; */
+  /* background-color: yellow; */
 }
 
 .parallax-container {
+  font-family:'Arial Narrow Bold';
+  /* font-style: italic; */
   height: 200px;
 }
 
@@ -27,8 +92,39 @@
   padding-right: 42px;
 }
 
+.description p {
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  color: darkgoldenrod;
+}
+.myBlock {
+  display: flex;
+  justify-content: space-between;
+}
+.description h6 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  padding-bottom: 4.2px;
+  color: cornflowerblue;
+  position: relative;
+  padding-top: 0;
+  margin: 2.1px 4.2px;
+}
+
 .footer {
- /* background-color: rgba(32, 45, 66, 0.911);*/
+
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+  font-size: 4.2%;
+  background-color: rgb(29, 37, 18);
+  /* background-color: rgba(32, 45, 66, 0.911);*/
+ /* display: flex;
+ justify-content: center;
+ align-items: center; */
+ height: 121px;
+ margin-top: auto;
 }
 
 .Voyages_list {
@@ -43,11 +139,32 @@
   flex-flow: wrap;
 }
 
-.Search {
+.Form { 
+  width: 42%;
   display: flex;
   flex-direction: row; 
   align-items: center;
   justify-content: center;
+  /* background-color: rgba(13, 69, 95, 0.808); */
+  background-color: rgba(0, 0, 0, 0.808);
+  margin-bottom: 42px;
+  margin-top: 2.1%;
+  padding-top: 21px;;
+  border-radius: 4px;
+}
+
+.Form input {
+  color: goldenrod;
+  text-align: center;
+}
+
+.Form i {
+  /* margin-right: -50px; */
+}
+.iconField {
+  margin-right: -42px;
+  margin-top: 15px;
+  color: white;
 }
 
 .newTravel {
@@ -82,4 +199,16 @@ table.highlight>tbody>tr {
   width: 150px;
   padding-left: 13px;
   min-height: 100%;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  min-height: 100%;
+  color: darkgoldenrod;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 21px;
+  font-weight: bold;
 }

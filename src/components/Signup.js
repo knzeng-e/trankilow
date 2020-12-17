@@ -1,31 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import CreateUser from './CreateUser';
 
-const Signup = () =>  {
+const Signup = (props) =>  {
     return (
-        <div className="Search signup">
-            <form>
-                <div className="row">
-                    <div className="col input-field">
-                        <input type="text" placeholder="Nom"/>
-                    </div>
-                    <div className="col input-field">
-                        <input type="text" placeholder="Prénom"/>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col input-field">
-                        <input type="text" placeholder="Adresse"/>
-                    </div>
-                    <div className="col input-field">
-                        <input type="text" placeholder="telephone"/>
-                    </div>
-                </div>
-                <div className="center row">
-                    <button className="btn center indigo" type="submit">Enregistrer</button>
-                </div>
-            </form>
-        </div>
+        <CreateUser existingUsers={props.existingUsers}/>
     )
 }
 
-export default Signup;
+const mapStateToProps = (state) => {
+    return {
+        existingUsers: state.users
+    }
+}
+
+export default connect(mapStateToProps, null)(Signup);

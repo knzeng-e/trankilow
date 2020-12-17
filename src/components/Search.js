@@ -1,5 +1,5 @@
-import $ from 'jquery';
 import M from 'materialize-css';
+import { connect } from 'react-redux';
 import React, { Component } from 'react';
 
 class Search extends Component {
@@ -8,73 +8,96 @@ class Search extends Component {
         this.state = {
             depart: '',
             arrivee: '',
-            date: '',
-            heure: "",
+            travelDate: '',
+            heure: '',
+            foundTravels: ['tut']
         }
     }
 
-    options = {
-        autoClose: true,
-        container: document.getElementById('calendar'),
-        onSelect: (date) => {console.log("selceted date =====> ", date)}
-        
-    }
+    DateValue = React.createRef();
 
-    componentWillMount() {
-        console.log("Ready set go")
-    }
     componentDidMount() {
+        var context = this
      document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.datepicker');
-        var instances = M.Datepicker.init(elems, this.options);
+        M.Datepicker.init(
+            document.querySelectorAll('.datepicker'), 
+            {
+                format: "dd/mm/yyyy",
+                autoClose: true,
+                container: document.getElementById('calendar'),
+                onSelect: (date) => context.handleDate(date)
+            });
         }); 
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        const {depart, arrivee, date} = this.state;
-        console.log("Recherche: ", depart, " - ", arrivee, " - ", date)
+        console.log("[Search] TravelsToFind ==> ", this.props.travelsList)
+        const {depart, arrivee, travelDate} = this.state;
+        const foundTravels = this.props.travelsList.travels.find(travel => {
+            return travel.from.toLowerCase() === depart && travel.to.toLowerCase() === arrivee})
+            console.log('result ==>', foundTravels)
+
+        console.log("Recherche: ", depart, " - ", arrivee, " - ", travelDate);
+        if (foundTravels != undefined) {
+            this.setState({
+                foundTravels: foundTravels
+            })
+            console.log(':-) Corresponding travels => ', foundTravels);
+        }
+        else {
+            console.log(`:-( No travels found from ${depart} to ${arrivee}`)
+        }
+        
     }
 
-    handleDeparture = (event) => {
-        event.preventDefault();
-        this.setState({
-            depart: event.target.value
-        })
-    }
-
-    handleArrival = (event) => {
-        event.preventDefault();
-        this.setState({
-            arrivee: event.target.value,
-        })
-    }
-
-    handleDate = (e) => {
+    handleChange = (e) => {
         e.preventDefault();
-        console.log('Date choisie => ', e.target.value)
-        console.log("DDate => ", this.instances[0].el.date);
-        this.setState({date: e.target.value })
+        this.setState({
+            [e.target.id]: e.target.value.toLowerCase()
+        })
+    }
+
+    handleDate = (date) => {
+        //console.log('Date choisie => ', e.target.value)
+        //console.log("DDate => ", this.instances[0].el.date);
+        console.log("Date en cours de selection => ", date)
+        this.setState({
+            travelDate: date
+        })
     }
 
     render () {
         return (
-            <div className = "Search container" style = {searchBarStyle}>
-                <form className="" onSubmit = {this.handleSubmit}>
-                        <div className=" row">
-                            <div className="col">
-                                <input placeholder="Ville de départ" type="text" onChange = {this.handleDeparture}/>
-                                <input placeholder = "Ville d'arrivée" type="text" onChange = {this.handleArrival}/>
-                                <div className="row calendar" id="calendar">
-                                    <div className = "col">
-                                        <input type = "text" placeholder="Date" className="datepicker" onChange = {this.handleDate}/>
-                                    </div>
-                                    <div className = "col  m12 s12 l12">
-                                        <button className="btn right indigo" type="submit">valider</button>
-                                    </div>
-                                </div>
+            <div className = "container Form" >
+                <form className = "" onSubmit = {this.handleSubmit}>
+                        <div className = "row">
+                            <div className = "col iconField">
+                                <i className ="material-icons prefix">flight_takeoff</i>
                             </div>
-                       </div>
+                            <div className = "col">
+                                <input placeholder = "Ville de départ" id="depart" required={true} type="text" onChange = {this.handleChange}/>
+                            </div>
+                        </div>
+                        <div className = "row">
+                            <div className = "col iconField">
+                                <i className = "material-icons prefix">flight_land</i>
+                            </div>
+                            <div className = "col">
+                                <input placeholder = "Ville d'arrivée" id="arrivee" required={true} type="text" onChange = {this.handleChange}/>
+                            </div>
+                        </div>
+                        <div className="row calendar" id="calendar">
+                            <div className = "col iconField">
+                                <i className="material-icons white-text prefix">date_range</i>
+                            </div>
+                            <div className = "col">
+                                <input type = "text" placeholder="Date" id="travelDate" value={this.state.travelDate} ref={this.DateValue} className="datepicker" onChange = {this.handleChange}/>
+                            </div>
+                            <div className = "col  m12 s12 l12">
+                                <button className="btn right indigo" type="submit">valider</button>
+                            </div>
+                        </div>
                     </form>
             </div>
         )
@@ -83,8 +106,17 @@ class Search extends Component {
 
 }
 
-const searchBarStyle = {
-    marginTop: '2.1%',
+
+const mapStateToProps = (state) => {
+    return {
+        travelsList: state.travels.travelsList
+    }
 }
 
-export default Search;
+const mapDispatchToProps = (dispatch) => {
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
