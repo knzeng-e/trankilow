@@ -10,7 +10,7 @@ const Footer = () => {
                 <h6 className="">Envoyez rapidement et simplement votre colis.</h6>
                 <h6 className="right">Trouvez votre transporteur.</h6>
                 <p className="" style={styles.copyright}>
-                    Copyright {'\u00A9'} 2020 {'\u2625'}
+                    Copyright Maat {'\u00A9'} 2021 {'\u2625'}
                 </p>
                 <div className = "myBlock">
                     <h6> Vos Kilos ont de la valeur.</h6>
@@ -23,7 +23,7 @@ const Footer = () => {
 
 const styles = {
     copyright: {
-        fontSize:14
+        fontSize: 14
     }
 }
 

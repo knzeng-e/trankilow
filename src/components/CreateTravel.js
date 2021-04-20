@@ -73,7 +73,7 @@ class AddTravel extends Component {
             return <div className = "loading">Chargement des données ...</div>
         }
         return (
-            <div className="container Form z-depth-5">
+            <div className="Form container z-depth-5">
                 <form className="" onSubmit = {this.handleAddTravel}>
                         <div className="row">
                             <div className="col iconField">

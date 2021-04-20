@@ -35,10 +35,10 @@ import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-do
     const options = {
       responsiveThreshold: 0,
     }
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.parallax');
-      var instances = M.Parallax.init(elems, options);
-    });
+    // document.addEventListener('DOMContentLoaded', function() {
+    //   var elems = document.querySelectorAll('.parallax');
+    //   var instances = M.Parallax.init(elems, options);
+    // });
 
     try {
       // Get network provider and web3 instance.
@@ -79,7 +79,6 @@ import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-do
     return (
       <div className="App">
         <div>
-
           <Router>
             <Navbar accounts = {this.state.accounts}/>
             <Switch>
@@ -95,7 +94,7 @@ import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-do
               </Switch>
           </Router>
         </div>
-        <Footer />
+        <Footer className='footer'/>
       </div>
     );
   }
