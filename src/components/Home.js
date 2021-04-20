@@ -20,7 +20,7 @@ class Home extends Component {
         this.state = {
             travels: props.travelsList,
             users: '',
-            dataFormat: 'table'
+            dataFormat: 'card'
         }
     }
 

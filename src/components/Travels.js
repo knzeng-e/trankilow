@@ -29,14 +29,17 @@ const showtravels  = (props) => {
                 if (userInfos){
                     return (
                         <div className="travels row">
-                            <div className="divider"><p></p></div>
-                            <div className="divider"></div>
-                            <div className="divider"></div>
-                            <div className="divider"></div> 
-                            {/* Card presentation */}
                             {
                                 format === "card" && <CardTravel travel={travel} userInfos={userInfos}/>
                             }
+                            {/* <div className="divider"><p></p></div>
+                            <div className="divider"></div>
+                            <div className="divider"></div>
+                            <div className="divider"></div>  */}
+                            {/* Card presentation */}
+                            {/* {
+                                format === "card" && <CardTravel travel={travel} userInfos={userInfos}/>
+                            } */}
                             {/* Table presentation */}
                         </div>     
                     )
